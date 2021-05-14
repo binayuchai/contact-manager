@@ -1,0 +1,39 @@
+﻿@model contactmanager.Models.ContactViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+    <!-- Table -->
+    <table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Middle Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Gender</th>
+            <th scope="col">Date of Birth</th>
+            <th scope="col" colspan ="2">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Person p in Model.Persons)
+        {
+            <tr>
+                <th scope="row">@p.PersonID</th>
+                <th>@p.FirstName</th>
+                <td>@p.MiddleName</td>
+                <td>@p.LastName</td>
+                <td>@p.Gender</td>
+                <td>@(p.Dob.ToString("MM/dd/yyyy"))</td>
+                <td><a class="btn btn-primary" href="/Home/EditContact?id=@p.PersonID">Edit</a></td>
+                <td><a class="btn btn-danger" href="/Home/DeleteContact?id=@p.PersonID">Delete</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+</div>

@@ -1,0 +1,136 @@
+@model contactmanager.Models.ContactViewModel
+@{
+    ViewData["Title"] = "Edit Contact";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Edit Contact</h1>
+</div>
+@if(!string.IsNullOrEmpty(ViewBag.Message)){
+<div class="alert alert-success" role="alert">
+  @ViewBag.Message
+</div>
+}
+<form asp-action="EditContact" method="post">
+    <input name="id" value="@Model.Person.PersonID" type="hidden">
+<div class="row">
+    <div class="col-4">
+        <label>First Name:</label>
+        <input name="first_name" type="text" class="form-control" value="@Model.Person.FirstName" required>
+    </div>
+    <div class="col-4">
+        <label>Middle Name:</label>
+        <input name="middle_name" type="text" class="form-control">
+    </div>
+    <div class="col-4">
+        <label>Last Name:</label>
+        <input name="last_name" type="text" class="form-control" value="@Model.Person.LastName" required>
+    </div>
+</div>
+<div class="row">
+    <div class="col-4">
+        <label>Gender:</label>
+        <br />
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="gender" id="exampleRadios1" value="M" checked>
+            <label class="form-check-label" for="exampleRadios1">
+                Male
+            </label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="gender" id="exampleRadios2" value="F">
+            <label class="form-check-label" for="exampleRadios2">
+                Female
+            </label>
+        </div>
+    </div>
+    <div class="col-4">
+        <label>Date of Birth:</label>
+        <input name="dob" type="date" class="form-control">
+    </div>
+    <div class="col-4">
+
+    </div>
+</div>
+<div class="row">
+    <div class="col-4">
+        <label>Category: </label>
+        <br />
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+            <label class="form-check-label" for="defaultCheck1">
+                Family
+            </label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" checked>
+            <label class="form-check-label" for="defaultCheck1">
+                Friends
+            </label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+            <label class="form-check-label" for="defaultCheck1">
+                Collegue
+            </label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+            <label class="form-check-label" for="defaultCheck1">
+                Others
+            </label>
+        </div>
+    </div>
+    <div class="col-4">
+ 
+    </div>
+    <div class="col-4">
+
+    </div>
+
+</div>
+<div class="row">
+    <div class="col-4">
+        <label>Email Address:</label>
+        <input type="email" class="form-control">
+    </div>
+    <div class="col-4">
+        <label>Phone:</label>
+        <input type="tel" class="form-control" required>
+    </div>
+    <div class="col-4">
+
+    </div>
+</div>
+<div class="row">
+    <div class="col-4">
+        <label>Address:</label>
+        <input type="text" class="form-control">
+    </div>
+    <div class="col-4">
+        <div class="form-group">
+            <label for="state">State:</label>
+            <!-- Example single danger button -->
+            <select class="form-control" id="state">
+                <option>state 1</option>
+                <option>state 2</option>
+                <option>state 3</option>
+                <option>state 4</option>
+                <option>state 5</option>
+            </select>
+        </div>
+
+    </div>
+    <div class="col-4"></div>
+</div>
+<div class="row">
+    <div class="col-4">
+        <button class="btn btn-secondary" type="reset">Cancel</button>
+        <button class="btn btn-primary" type="submit">Update</button>
+    </div>
+    <div class="col-4">
+
+    </div>
+    <div class="col-4"></div>
+</div>
+</form>
